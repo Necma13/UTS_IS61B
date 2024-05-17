@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('pelajarans', function (Blueprint $table) {
             $table->id();
+            $table->string('kd_pel')->unique();
+            $table->string('mapel');
+            $table->integer('jum_sesi');
             $table->timestamps();
         });
     }

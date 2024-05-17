@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('nilais', function (Blueprint $table) {
-            $table->id();
+            $table->integer('no_nilai')->primary();
+            $table->string('nisn')->unique();
+            $table->integer('n_quiz');
+            $table->integer('n_tugas');
+            $table->integer('n_ujian');
             $table->timestamps();
         });
     }

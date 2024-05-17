@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('pembayarans', function (Blueprint $table) {
             $table->id();
+            $table->string('nofak')->unique();
+            $table->string('nisn')->unique();
+            $table->dateTime('tgl_b');
+            $table->integer('jum_b');
+            $table->string('bukti_b');
             $table->timestamps();
         });
     }
