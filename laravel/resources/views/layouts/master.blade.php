@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -59,11 +58,11 @@
             <!-- Divider -->
             <hr class="sidebar-divider">
 
-            <!-- Nav Item - Biaya -->
+            <!-- Nav Item - Pembayaran -->
             <li class="nav-item">
-                <a class="nav-link" href="biaya.html">
+                <a class="nav-link" href="pembayaran.html">
                     <i class="fas fa-fw fa-money-bill"></i>
-                    <span>Biaya</span></a>
+                    <span>Pembayaran</span></a>
             </li>
 
             <!-- Divider -->
@@ -74,6 +73,16 @@
                 <a class="nav-link" href="pelajaran.html">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Pelajaran</span></a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Nav Item - Nilai -->
+            <li class="nav-item">
+                <a class="nav-link" href="nilai.html">
+                    <i class="fas fa-fw fa-chart-line"></i>
+                    <span>Nilai</span></a>
             </li>
 
             <!-- Divider -->
@@ -246,7 +255,7 @@
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
                             <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Valerie Luna</span>
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">{{ Auth::user()->name }}</span>
                                 <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
