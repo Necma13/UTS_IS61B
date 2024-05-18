@@ -1,15 +1,17 @@
-@extends('master')
-
-@section('title', 'Tambah Siswa')
-
+@extends('layouts.master')
+@section('title','Tambah Data Siswa')
+@section('judul','Tambah Data siswa')
+@section('nama','Hananan Academy')
 @section('content')
 <div class="container-fluid">
-    <h1 class="h3 mb-4 text-gray-800">Tambah Siswa</h1>
-
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ route('siswa.store') }}" method="POST">
+            <form method="POST" action="/siswa/store/">
                 @csrf
+                <div class="form-group">
+                    <label for="nisn">NISN:</label>
+                    <input type="text" class="form-control" id="nisn" name="nisn">
+                </div>
                 <div class="form-group">
                     <label for="nama">Nama:</label>
                     <input type="text" class="form-control" id="nama" name="nama">
@@ -23,7 +25,7 @@
                     <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
                 </div>
                 <div class="form-group">
-                    <label for="jjg">Jurusan:</label>
+                    <label for="jjg">Jenjang Pendidikan:</label>
                     <input type="text" class="form-control" id="jjg" name="jjg">
                 </div>
                 <div class="form-group">

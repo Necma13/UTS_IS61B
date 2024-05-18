@@ -1,4 +1,4 @@
-@extends('master')
+@extends('layouts.master')
 
 @section('title', 'Edit Siswa')
 
@@ -8,9 +8,9 @@
 
     <div class="card shadow mb-4">
         <div class="card-body">
-            <form action="{{ route('siswa.update', $siswa->id) }}" method="POST">
-                @csrf
+            <form method="post" action="/siswa/{{$sis->nisn}}">
                 @method('PUT')
+                @csrf
                 <div class="form-group">
                     <label for="nama">Nama:</label>
                     <input type="text" class="form-control" id="nama" name="nama" value="{{ $siswa->nama }}">

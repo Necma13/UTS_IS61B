@@ -30,7 +30,17 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nisn' => 'required|unique:siswas,nisn',
+            'nama' => 'required',
+            'tgl' => 'required|date',
+            'alamat' => 'required',
+            'jjg' => 'required',
+            'hp' => 'required'
+        ]);
+
         $sis = new Siswa;
+        $sis->nisn = $request->nisn;
         $sis->nama = $request->nama;
         $sis->tgl = $request->tgl;
         $sis->alamat = $request->alamat;
@@ -55,7 +65,11 @@ class SiswaController extends Controller
     public function edit(string $nisn)
     {
         $sis = Siswa::find($nisn);
-        return view('siswa.edit',compact('sis'));
+        if ($sis) {
+            return view('siswa.edit', compact('sis'));
+        } else {
+            return redirect('/siswa/')->withErrors('Data tidak ditemukan');
+        }
     }
 
     /**
@@ -63,22 +77,39 @@ class SiswaController extends Controller
      */
     public function update(Request $request, string $nisn)
     {
+        $request->validate([
+            'nama' => 'required',
+            'tgl' => 'required|date',
+            'alamat' => 'required',
+            'jjg' => 'required',
+            'hp' => 'required'
+        ]);
+
         $sis = Siswa::find($nisn);
-        $sis->nama = $request->nama;
-        $sis->tgl = $request->tgl;
-        $sis->alamat = $request->alamat;
-        $sis->jjg = $request->jjg;
-        $sis->hp = $request->hp;
-        $sis->save();
+        if ($sis) {
+            $sis->nama = $request->nama;
+            $sis->tgl = $request->tgl;
+            $sis->alamat = $request->alamat;
+            $sis->jjg = $request->jjg;
+            $sis->hp = $request->hp;
+            $sis->save();
+        } else {
+            return redirect('/siswa/')->withErrors('Data tidak ditemukan');
+        }
 
         return redirect('/siswa/');
     }
-
     /**
      * Remove the specified resource from storage.
      */
     public function destroy(string $nisn)
     {
-        //
+        $sis = Siswa::find($nisn);
+        if ($sis) {
+            $sis->delete();
+            return redirect('/siswa/')->with('success', 'Data berhasil dihapus');
+        } else {
+            return redirect('/siswa/')->withErrors('Data tidak ditemukan');
+        }
     }
 }
