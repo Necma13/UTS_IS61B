@@ -59,7 +59,7 @@
 
             <!-- Nav Item - Pembayaran -->
             <li class="nav-item">
-                <a class="nav-link" href="pembayaran.html">
+                <a class="nav-link" href="/pembayaran/">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Pembayaran</span></a>
             </li>

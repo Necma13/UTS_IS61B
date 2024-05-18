@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController; // Pastikan untuk mengimpor SiswaController
 use App\Http\Controllers\PelajaranController;
+use App\Http\Controllers\PembayaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,3 +39,11 @@ Route::post('/pelajaran/store/', [PelajaranController::class, 'store'])->middlew
 Route::get('/pelajaran/edit/{id}', [PelajaranController::class, 'edit'])->middleware('auth');
 Route::put('/pelajaran/{id}', [PelajaranController::class, 'update'])->middleware('auth');
 Route::delete('/pelajaran/{id}', [PelajaranController::class, 'destroy'])->middleware('auth');
+
+//Data Pembayaran
+Route::get('/pembayaran/', [PembayaranController::class, 'index'])->middleware('auth');
+Route::get('/pembayaran/form/', [PembayaranController::class, 'create'])->middleware('auth');
+Route::post('/pembayaran/store/', [PembayaranController::class, 'store'])->middleware('auth');
+Route::get('/pembayaran/edit/{id}', [PembayaranController::class, 'edit'])->middleware('auth');
+Route::put('/pembayaran/{id}', [PembayaranController::class, 'update'])->middleware('auth');
+Route::delete('/pembayaran/{id}', [PembayaranController::class, 'destroy'])->middleware('auth');
