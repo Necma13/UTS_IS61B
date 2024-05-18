@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\SiswaController; // Pastikan untuk mengimpor SiswaController
+use App\Http\Controllers\PelajaranController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,3 +30,11 @@ Route::post('/siswa/store/', [SiswaController::class, 'store'])->middleware('aut
 Route::get('/siswa/edit/{nisn}', [SiswaController::class, 'edit'])->middleware('auth');
 Route::put('/siswa/{nisn}', [SiswaController::class, 'update'])->middleware('auth');
 Route::delete('/siswa/{nisn}', [SiswaController::class, 'destroy'])->middleware('auth');
+
+//Data Pelajaran
+Route::get('/pelajaran/', [PelajaranController::class, 'index'])->middleware('auth');
+Route::get('/pelajaran/form/', [PelajaranController::class, 'create'])->middleware('auth');
+Route::post('/pelajaran/store/', [PelajaranController::class, 'store'])->middleware('auth');
+Route::get('/pelajaran/edit/{id}', [PelajaranController::class, 'edit'])->middleware('auth');
+Route::put('/pelajaran/{id}', [PelajaranController::class, 'update'])->middleware('auth');
+Route::delete('/pelajaran/{id}', [PelajaranController::class, 'destroy'])->middleware('auth');

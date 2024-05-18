@@ -1,6 +1,6 @@
 @extends('layouts.master')
-@section('title','Data Siswa')
-@section('judul','Data siswa')
+@section('title','Data Pelajaran')
+@section('judul','Data Pelajaran')
 @section('nama','Hananan Academy')
 @section('content')
 <!-- Begin Page Content -->
@@ -8,7 +8,7 @@
 
     <!-- Page Heading -->
     <div class="card-header">
-        <a href="/siswa/form/" class="btn btn-primary"> <i class="fa fa-plus"></i>Tambah data </a>
+        <a href="/pelajaran/form/" class="btn btn-primary"> <i class="fa fa-plus"></i>Tambah data </a>
        </div>
        <div class="card-tools">
         <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
@@ -20,7 +20,7 @@
     <!-- DataTales Example -->
     <div class="card shadow mb-4">
         <div class="card-header py-3">
-            <h6 class="m-0 font-weight-bold text-primary">Data Siswa</h6>
+            <h6 class="m-0 font-weight-bold text-primary">Data Pelajaran</h6>
         </div>
         <div class="card-body">
             <div class="table-responsive">
@@ -28,31 +28,27 @@
                     <thead>
                         <tr>
                             <th>NO</th>
-                            <th>Nama</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Alamat</th>
-                            <th>Jenjang Pendidikan</th>
-                            <th>No.HP</th>
+                            <th>Kode Pelajaran</th>
+                            <th>Mata Pelajaran</th>
+                            <th>Jumalah Sesi</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
-                        @forelse ($sis as $item)
+                        @forelse ($pel as $item)
                     <tr>
                         <td>{{$nomor++}}</td>
-                        <td>{{$item->nama}}</td>
-                        <td>{{$item->tgl}}</td>
-                        <td>{{$item->alamat}}</td>
-                        <td>{{$item->jjg}}</td>
-                        <td>{{$item->hp}}</td>
+                        <td>{{$item->kd_pel}}</td>
+                        <td>{{$item->mapel}}</td>
+                        <td>{{$item->jum_sesi}}</td>
                         <td>
-                            <a href="/siswa/edit/{{$item->nisn}}" class="btn btn-info btn-xs"><i class="fa fa-pen"></i></a>
-                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapus{{$item->nisn}}">
+                            <a href="/pelajaran/edit/{{$item->id}}" class="btn btn-info btn-xs"><i class="fa fa-pen"></i></a>
+                            <button type="button" class="btn btn-danger btn-xs" data-toggle="modal" data-target="#hapus{{$item->id}}">
                                 <i class="fa fa-trash"></i>
                             </button>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="hapus{{$item->nisn}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal fade" id="hapus{{$item->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -60,11 +56,11 @@
                                     <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
-                                    Yakin ingin menghapus data siswa <b>{{$item->nama}}</b>?
+                                    Yakin ingin menghapus data Pelajran <b>{{$item->mapel}}</b>?
                                     </div>
                                     <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Batal</button>
-                                    <form action="/siswa/{{$item->nisn}}" method="post">
+                                    <form action="/siswa/{{$item->id}}" method="post">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-primary">Hapus</button>
