@@ -11,25 +11,25 @@
             <form method="post" action="/siswa/{{$sis->nisn}}">
                 @method('PUT')
                 @csrf
-                <div class="form-group">
-                    <label for="nama">Nama:</label>
-                    <input type="text" class="form-control" id="nama" name="nama" value="{{ $siswa->nama }}">
+                <div class="mb-3">
+                    <label class="form-label">Nama</label>
+                    <input type="text" readonly value="{{$sis->nama}}" class="form-control" name="nama">
                 </div>
-                <div class="form-group">
-                    <label for="tgl">Tanggal Lahir:</label>
-                    <input type="date" class="form-control" id="tgl" name="tgl" value="{{ $siswa->tgl }}">
+                <div class="mb-3">
+                    <label class="form-label">Tanggal Lahir</label>
+                    <input type="text" readonly value="{{$sis->tgl}}" class="form-control" name="tgl">
                 </div>
-                <div class="form-group">
-                    <label for="alamat">Alamat:</label>
-                    <textarea class="form-control" id="alamat" name="alamat" rows="3">{{ $siswa->alamat }}</textarea>
+                <div class="mb-3">
+                    <label class="form-label">Alamat</label>
+                    <input type="text" readonly value="{{$sis->alamat}}" class="form-control" name="alamat">
                 </div>
-                <div class="form-group">
-                    <label for="jjg">Jurusan:</label>
-                    <input type="text" class="form-control" id="jjg" name="jjg" value="{{ $siswa->jjg }}">
+                <div class="mb-3">
+                    <label class="form-label">Jenjang Pendidikan</label>
+                    <input type="text" readonly value="{{$sis->jjg}}" class="form-control" name="jjg">
                 </div>
-                <div class="form-group">
-                    <label for="hp">Nomor HP:</label>
-                    <input type="text" class="form-control" id="hp" name="hp" value="{{ $siswa->hp }}">
+                <div class="mb-3">
+                    <label class="form-label">No.HP</label>
+                    <input type="text" readonly value="{{$sis->hp}}" class="form-control" name="hp">
                 </div>
                 <button type="submit" class="btn btn-primary">Submit</button>
             </form>

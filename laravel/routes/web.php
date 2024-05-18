@@ -28,3 +28,4 @@ Route::get('/siswa/form/', [SiswaController::class, 'create'])->middleware('auth
 Route::post('/siswa/store/', [SiswaController::class, 'store'])->middleware('auth');
 Route::get('/siswa/edit/{nisn}', [SiswaController::class, 'edit'])->middleware('auth');
 Route::put('/siswa/{nisn}', [SiswaController::class, 'update'])->middleware('auth');
+Route::delete('/siswa/{nisn}', [SiswaController::class, 'destroy'])->middleware('auth');

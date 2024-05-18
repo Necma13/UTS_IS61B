@@ -105,11 +105,9 @@ class SiswaController extends Controller
     public function destroy(string $nisn)
     {
         $sis = Siswa::find($nisn);
-        if ($sis) {
-            $sis->delete();
-            return redirect('/siswa/')->with('success', 'Data berhasil dihapus');
-        } else {
-            return redirect('/siswa/')->withErrors('Data tidak ditemukan');
-        }
+        $sis->delete();
+
+        return redirect('/siswa/');
     }
 }
+
